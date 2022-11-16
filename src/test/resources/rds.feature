@@ -7,14 +7,3 @@ Feature: Execute UI & API tests
     Then I post data
     And I put request
     Then I delete a resource
-  @ui
-  Scenario Outline: UI testing
-    Given user launch the application
-    And login with "<username>" and "<password>"
-    Then click login button
-    And add the product to cart
-    Then user Navigateds to the cart
-
-    Examples: 
-      | username      | password     |
-      | standard_user | secret_sauce |

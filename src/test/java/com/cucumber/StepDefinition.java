@@ -15,47 +15,8 @@ import io.restassured.http.ContentType;
 import io.restassured.response.Response;
 
 public class StepDefinition {
-	public static WebDriver driver;
 	private static String postBody = "{\n" + "  \"name\": \"foo\",\n" + "  \"job\": \"bar\"\n}";
 	private static String putBody = "{\n" + "  \"name\": \"Adrin\",\n" + "	\"job\": \"xyz\"\n}";
-
-	@Given("user launch the application")
-	public void user_launch_the_application() {
-		WebDriverManager.chromedriver().setup();
-		driver = new ChromeDriver();
-
-		driver.get("https://www.saucedemo.com/");
-		driver.manage().window().maximize();
-		System.out.println(driver.getTitle());
-
-	}
-
-	@Given("login with {string} and {string}")
-	public void login_with_and(String string, String string2) {
-		WebElement name = driver.findElement(By.id("user-name"));
-		name.click();
-		name.sendKeys(string); // 1
-
-		WebElement pwd = driver.findElement(By.id("password"));
-		pwd.click();
-		pwd.sendKeys(string2); // 2
-	}
-
-	@Then("click login button")
-	public void click_login_button() {
-		driver.findElement(By.id("login-button")).click(); // 3
-	}
-
-	@Then("add the product to cart")
-	public void add_the_product_to_cart() {
-		driver.findElement(By.id("add-to-cart-sauce-labs-backpack")).click(); // 4
-	}
-
-	@Then("user Navigateds to the cart")
-	public void user_navigateds_to_the_cart() {
-		driver.findElement(By.id("shopping_cart_container")).click();
-		driver.quit();
-	}
 
 	@When("I fetch the data")
 	public void i_fetch_the_data() {
