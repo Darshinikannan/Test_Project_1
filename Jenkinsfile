@@ -6,11 +6,6 @@ pipeline {
     }
 
     stages {
-        stage('Checkout') {
-            steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'Git-Darshini', url: 'https://github.com/Darshinikannan/Test_Project_1.git']]])
-            }
-        }
         stage('Pre-Build') {
             steps {
                 echo 'Pre Build'
