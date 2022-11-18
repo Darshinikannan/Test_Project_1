@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Build') {
             steps {
-                sh 'mvn -Dmaven.test.failure.ignore=true clean package'
+                echo 'Starting to Build'
             }
         }
         stage('API_Tests') {
