@@ -1,6 +1,5 @@
 node {
     def Default
-    stages {
         stage('Fetch code from github') {
             checkout([$class: 'GitSCM', branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'Git-Darshini', url: 'https://github.com/Darshinikannan/Test_Project_1.git']]])   
         }
@@ -12,5 +11,4 @@ node {
                 archiveArtifacts 'target/*.jar'
                 echo 'Report generated Successfully'
         }
-    }
 }
